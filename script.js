@@ -255,14 +255,14 @@ console.log(starWarsCharacters);
 
 /* SCRIVI QUI LA TUA RISPOSTA */
 let piuAlto = starWarsCharacters[0];
-let piuBasso= starWarsCharacters[0];
+let piuBasso = starWarsCharacters[0];
 
 for (let i = 0; i < starWarsCharacters.length; i++) {
-	if (Number(starWarsCharacters[i].height > Number(piuAlto.height))){
-		piuAlto = starWarsCharacters [i];
+	if (Number(starWarsCharacters[i].height > Number(piuAlto.height))) {
+		piuAlto = starWarsCharacters[i];
 	}
-	if (Number(starWarsCharacters[i].height < Number(piuBasso.height))){
-		piuBasso = starWarsCharacters [i];
+	if (Number(starWarsCharacters[i].height < Number(piuBasso.height))) {
+		piuBasso = starWarsCharacters[i];
 	}
 }
 
@@ -276,6 +276,18 @@ console.log(`Piu alto: ${piuBasso.name} (${piuBasso.height})`);
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
+console.log(nomi.length);
+
+for (let i = 0; i < nomi.length; i++) {
+	for (let j = 0; j < personaggiFemminili.length; j++) {
+		if (nomi[i] === personaggiFemminili[j]) {
+			nomi.splice(i, 1);
+			i--;
+			break;
+		}
+	}
+}
+console.log(nomi.length); // controllare problema domani 
 
 /* ESERCIZIO 10 — Personaggio casuale
    indice = Math.floor(Math.random() * starWarsCharacters.length)
