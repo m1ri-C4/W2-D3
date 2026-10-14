@@ -189,7 +189,15 @@ console.log(perColoreOcchi);
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
-let massaTotale;
+let i = 0;
+let massaTotale = 0;
+
+while (i < starWarsCharacters.length) {
+	massaTotale += Number(starWarsCharacters[i].mass); // devo modificare i .mass essendo string in number
+	i++;
+}
+
+console.log(`Massa totale = ${massaTotale}`);
 
 
 /* ESERCIZIO 6 — Classifica il carico
@@ -202,6 +210,28 @@ let massaTotale;
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
+switch (true) {
+	case massaTotale < 500:
+		console.log(`Carico leggero`);
+		break;
+
+	case massaTotale < 700:
+		console.log(`Carico medio`);
+		break;
+
+	case massaTotale < 900:
+		console.log(`Attenzione: oltre 700`)
+		break;
+
+	case massaTotale < 1000:
+		console.log(`Carico critico`);
+		break;
+
+	case massaTotale >= 1000:
+		console.log(`Pericolo: sovraccarico`);
+		break;
+
+}
 
 /* ESERCIZIO 7 — Robotizza i n/a
    For: per ogni personaggio con gender === "n/a", cambialo in "robot".
@@ -209,6 +239,13 @@ let massaTotale;
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
+for (let i = 0; i < starWarsCharacters.length; i++) {
+	if (starWarsCharacters[i].gender === 'n/a') {
+		starWarsCharacters[i].gender = 'robot';
+	}
+}
+
+console.log(starWarsCharacters);
 
 /* ESERCIZIO 8 — Più alto e più basso
    For su starWarsCharacters. Trova il personaggio con altezza maggiore e quello con altezza minore.
@@ -217,6 +254,20 @@ let massaTotale;
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
+let piuAlto = starWarsCharacters[0];
+let piuBasso= starWarsCharacters[0];
+
+for (let i = 0; i < starWarsCharacters.length; i++) {
+	if (Number(starWarsCharacters[i].height > Number(piuAlto.height))){
+		piuAlto = starWarsCharacters [i];
+	}
+	if (Number(starWarsCharacters[i].height < Number(piuBasso.height))){
+		piuBasso = starWarsCharacters [i];
+	}
+}
+
+console.log(`Piu alto: ${piuAlto.name} (${piuAlto.height})`);
+console.log(`Piu alto: ${piuBasso.name} (${piuBasso.height})`);
 
 /* ESERCIZIO 9 — Rimuovi i femminili dai nomi (cicli annidati)
    Sull'array "nomi" dell'esercizio 1: for esterno su nomi, for interno su personaggiFemminili.
